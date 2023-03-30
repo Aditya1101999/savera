@@ -23,8 +23,6 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-
-
 class _HomePageState extends State<HomePage> {
   String message = '';
 
@@ -50,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     GestureDetector(
                       child: AnimatedContainer(
-                        duration: const Duration(milliseconds: 5000),
+                        duration: const Duration(milliseconds: 500),
                         curve: Curves.easeInOut,
                         decoration: BoxDecoration(
                           border: Border.all(
@@ -80,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     GestureDetector(
                       child: AnimatedContainer(
-                        duration: const Duration(milliseconds: 5000),
+                        duration: const Duration(milliseconds: 500),
                         curve: Curves.easeInOut,
                         decoration: BoxDecoration(
                           border: Border.all(
@@ -101,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                         setState(() {
                           message = 'Bad touch';
                         });
-                        Future.delayed(Duration(milliseconds: 500), () {
+                        Future.delayed(Duration(milliseconds: 5000), () {
                           setState(() {
                             message = '';
                           });
@@ -174,53 +172,53 @@ class _HomePageState extends State<HomePage> {
           ),
           Positioned(
             top: 32.0,
-right: 32.0,
-child: ElevatedButton.icon(
-onPressed: () {},
-icon: Icon(
-Icons.connect_without_contact,
-color: Colors.white,
-),
-label: Text(
-'Connect',
-style: TextStyle(color: Colors.white),
-),
-style: ElevatedButton.styleFrom(
-backgroundColor: Colors.red,
-padding: EdgeInsets.symmetric(horizontal: 16.0),
-shape: RoundedRectangleBorder(
-borderRadius: BorderRadius.circular(16.0),
-),
-),
-),
-),
-if (message.isNotEmpty)
-Positioned(
-bottom: 32.0,
-left: 0,
-right: 0,
-child: Container(
-padding: const EdgeInsets.symmetric(
-horizontal: 16.0,
-vertical: 8.0,
-),
-decoration: BoxDecoration(
-color: message == 'Good touch' ? Colors.green : Colors.red,
-borderRadius: BorderRadius.circular(16.0),
-),
-child: Text(
-message,
-textAlign: TextAlign.center,
-style: TextStyle(
-color: Colors.white,
-fontWeight: FontWeight.bold,
-fontSize: 24.0,
-),
-),
-),
-),
-],
-),
-);
-}
+            right: 32.0,
+            child: ElevatedButton.icon(
+              onPressed: () {},
+              icon: Icon(
+                Icons.connect_without_contact,
+                color: Colors.white,
+              ),
+              label: Text(
+                'Connect',
+                style: TextStyle(color: Colors.white),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16.0),
+                ),
+              ),
+            ),
+          ),
+          if (message.isNotEmpty)
+            Positioned(
+              bottom: 32.0,
+              left: 0,
+              right: 0,
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 8.0,
+                ),
+                decoration: BoxDecoration(
+                  color: message == 'Good touch' ? Colors.green : Colors.red,
+                  borderRadius: BorderRadius.circular(16.0),
+                ),
+                child: Text(
+                  message,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24.0,
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
 }
